@@ -30,7 +30,7 @@
             foreach($_SESSION['products'] as $index => $product) {
                 echo "<tr>",
                         "<td>".$index."</td>",
-                        "<td>".$product['name']."</td>",
+                        "<td>".htmlspecialchars($product['name'], ENT_QUOTES, "UTF-8")."</td>",
                         "<td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€.</td>",
                         "<td>".$product['qtt']."</td>",
                         "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€.</td>",
