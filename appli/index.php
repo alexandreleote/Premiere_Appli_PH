@@ -9,11 +9,10 @@
 <div class="d-flex flex-column w-75 flex-grow-1">
     <div class="d-flex justify-content-center flex-column flex-wrap ml-5 mr-5 mb-5">
             
-        <form action="traitement.php?action=ajoutProduit" method="post" enctype="multipart/form-data" class="d-flex">
+        <form action="traitement.php?action=add" method="post" enctype="multipart/form-data" class="d-flex">
+            <div class="p-2">
             <h1 class="text-center text-info display-2 user-select-none"><u>Ajouter un produit</u></h1> 
-                
-        </form>
-            <form action="traitement.php?action=add" method="post">
+               
             <p>
                 <label>
                     Nom du produit :
@@ -35,6 +34,7 @@
             <p>
                 <input type="submit" name="submit" value="Ajouter le produit">
             </p>
+            </div>  
         </form>
     </div>
 </div>
