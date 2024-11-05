@@ -29,7 +29,7 @@
         foreach($_SESSION['products'] as $index => $product) {
             echo "<tr>",
                         "<td>".$index."</td>",
-                        "<td>".htmlspecialchars($product['name'], ENT_QUOTES, "UTF-8")."</td>",
+                        "<td>".$product['name']."</td>",
                         "<td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>",
                         "<td><a href='traitement.php?action=down-qtt&id=$index' class='btn btn-primary btn-sm me-1' role='button'>-</a>".$product['qtt']."<a href='traitement.php?action=up-qtt&id=$index' class='btn btn-primary btn-sm ms-1' role='button'>+</a></td>",
                         "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
