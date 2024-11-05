@@ -10,7 +10,8 @@
         echo "<p>Aucun produit en session...</p>";
     }
     else {
-        echo "<table class='table'>",
+        echo "<div class='m-2'>", 
+            "<table class='table'>",
                 "<thead>",
                     "<tr>",
                         "<th>#</th>",
@@ -42,6 +43,8 @@
                     "</tr>",
                 "</tbody>",
             "</table>";
+
+            echo "<a href='traitement.php?action=clear' class='btn btn-danger'>Vider le panier</a>";
     }
 ?>
 

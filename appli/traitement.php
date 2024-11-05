@@ -4,7 +4,7 @@
     if(isset($_GET['action'])) {
 
         switch($_GET['action']) {
-            case 'add' :
+            case 'add' : // Add an item to the cart
                 if(isset($_POST['submit'])) {
                     $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                     $price = filter_input(INPUT_POST, "price", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
@@ -21,16 +21,24 @@
                         $_SESSION['products'][] = $product;
                     }
                 }
+
+                $url = "index.php";
             break;
-            case 'delete' :
+            case 'delete' : // Empty an item
+                
             break;
-            case 'clear' :
+            case 'clear' : // Empty the cart
+                unset($_SESSION['products']);
+
+                $url = "recap.php";
             break;
-            case 'up-qtt' :
+            case 'up-qtt' : // Increase the quantity of the targeted item
+
             break;
-            case 'down-qtt' :
+            case 'down-qtt' : // Decrease the quantity of the targeted item
+
             break;
         }
     }
 
-    header("Location:index.php"); // Redirection to index.php
+    header("Location: $url"); exit; // Redirection to the right page when doing an action
