@@ -1,3 +1,7 @@
+<?php
+    require_once "functions.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +11,18 @@
     <!-- BOOTSTRAP CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icon@1.5.0/font/bootstrap-icons.css">
-    <title>Ajout produit</title>
+    <title><?= $titre ?></title>
 </head>
 <body>
     <div id="wrapper">
-
+        <!-- NAVBAR -->
+        <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+            <div class="d-flex p-2 pb-0 gap-2">
+                <a href="index.php" class="nav-link text-light">Commander</a>
+                <a href="recap.php" class="nav-link text-light">Panier<div class="btn btn-success" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem"><?= getWholeQuantity() ?></div></a>
+            </div>
+        </nav>
+        <!-- CONTENT WE RETRIEVE FROM THE PAGE BROWSED -->
         <?= $content ?>
 
     </div>

@@ -1,6 +1,7 @@
 <?php
     session_start();
     ob_start();
+    $titre = 'Commander un produit';
 ?>
 
 <!-- FORM -->
@@ -12,7 +13,7 @@
             <h1 class="text-center text-info display-2 user-select-none"><u>Ajouter un produit</u></h1> 
                 
         </form>
-            <form action="traitement.php" method="post">
+            <form action="traitement.php?action=add" method="post">
             <p>
                 <label>
                     Nom du produit :
