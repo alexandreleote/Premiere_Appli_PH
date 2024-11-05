@@ -1,5 +1,8 @@
 <?php
     session_start();
+    
+    /* Default url when we click on an action */
+    $url = 'recap.php';
 
     if(isset($_GET['action'])) {
 
@@ -22,23 +25,39 @@
                     }
                 }
 
-                $url = "index.php";
+                $url = "index.php"; // Redirection to index.php
             break;
             case 'delete' : // Empty an item
+                if(isset($_GET['id']) && isset($_SESSION['products'][$_GET['id']])) {
+                    unset($_SESSION['products'][$_GET['id']]);
+                }
                 
             break;
             case 'clear' : // Empty the cart
                 unset($_SESSION['products']);
 
-                $url = "recap.php";
             break;
             case 'up-qtt' : // Increase the quantity of the targeted item
+                
+                if(isset($_GET['id']) && isset($_SESSION['products'][$_GET['id']])) {
+                    $_SESSION['products'][$_GET['id']]['qtt']++ ;
+                }
 
             break;
             case 'down-qtt' : // Decrease the quantity of the targeted item
+                if(isset($_GET['id']) && isset($_SESSION['products'][$_GET['id']])) {
+                    $_SESSION['products'][$_GET['id']]['qtt']-- ;
+                    
+                    /* If item's quanitity reach 0 -> delete it */
+                    if($_SESSION['products'][$_GET['id']]['qtt'] == 0) {
 
+                        unset($_SESSION['products'][$_GET['id']]);
+                    
+                    }
+                    
+                }
             break;
         }
-    }
-
-    header("Location: $url"); exit; // Redirection to the right page when doing an action
+        header("Location: ".$url); // Redirection to index.php 
+        exit; 
+    }  
