@@ -10,7 +10,7 @@
         echo "<p>Aucun produit en session...</p>";
     }
     else {
-        echo "<div class='m-2'>", 
+        echo "<div class=''>", 
             "<table class='table'>",
                 "<thead>",
                     "<tr>",
@@ -38,14 +38,21 @@
             $grandTotal += $product['total'];
             $nbProducts += $product['qtt'];
         }
-            echo "<tr>",
-                        "<td colspan=1>Nombre de produits : ".$nbProducts."</td>",
-                        "<td colspan=3>Total général : </td>",
-                        "<td colspan=2><strong>".number_format($grandTotal, 2, ",", "&nbsp;")."&nbsp;€</strong></td>",
-                    "</tr>",
-                "</tbody>",
-            "</table>";
-            echo "<a href='traitement.php?action=clear' class='btn btn-danger'>Vider le panier</a>";
+        
+        echo "<tr>",
+                    "<td colspan=1>Nombre de produits : ".$nbProducts."</td>",
+                    "<td colspan=3>Total général : </td>",
+                    "<td colspan=2><strong>".number_format($grandTotal, 2, ",", "&nbsp;")."&nbsp;€</strong></td>",
+                "</tr>",
+            "</tbody>",
+        "</table>";
+        
+        echo "<a href='traitement.php?action=clear' class='btn btn-danger'>Vider le panier</a>";
+        
+    }
+
+    if(isset($_SESSION['message'])) {
+        echo "<div class='pt-2'>".$_SESSION['message']."</div>";
     }
 ?>
 
