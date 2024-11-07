@@ -56,6 +56,9 @@
                
                 unset($_SESSION['products']);
 
+                // Delete message success
+                $_SESSION['message'] = "Le panier a été vidé !";
+
             break;
 
             case 'up-qtt' : // Increase the quantity of the targeted item

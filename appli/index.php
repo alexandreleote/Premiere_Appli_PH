@@ -6,11 +6,11 @@
 ?>
 
 <!-- FORM -->
-    <div class="bg-white pb-2">
+    <div class="mt-5">
         <div class="d-flex justify-content-center">
                 
-            <form action="traitement.php?action=add" method="post" enctype="multipart/form-data" class="">
-                <div class="">
+            <form action="traitement.php?action=add" method="post" enctype="multipart/form-data" class="p-5 bg-secondary-subtle rounded">
+                <div style="background-image: url(https://www.pexels.com/fr-fr/photo/parquet-en-bois-brun-129731/);">
                 <h1 class="text-center text-secondary-emphasis"><u>Ajouter un produit</u></h1> 
                 
                 <p>
@@ -32,7 +32,7 @@
                     </label>
                 </p>
                 <p class='d-flex justify-content-center'>
-                    <input type="submit" name="submit" value="Ajouter le produit">
+                    <input type="submit" name="submit" value="Ajouter le produit" class="btn btn-success">
                 </p>
                 </div>  
             </form>
@@ -41,16 +41,15 @@
             <?php
         
                 if(isset($_SESSION['message'])) {
-                    echo "<div class='pt-2'>".$_SESSION['message']."</div>";
+                    echo "<div class='mt-2 p-1 rounded bg-secondary-subtle text-center'>".$_SESSION['message']."</div>";
                 }
             
             ?>
         </div>
     </div>
     
+    <?php
 
-<?php
+$content = ob_get_clean();
 
-    $content = ob_get_clean();
-
-    require_once "template.php"; ?>
+require_once "template.php"; ?>

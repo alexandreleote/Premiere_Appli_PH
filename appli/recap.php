@@ -7,10 +7,10 @@
 <?php
     /* Get the information if we ordered during the session */
     if(!isset($_SESSION['products']) || empty($_SESSION{'products'})) {
-        echo "<p>Aucun produit en session...</p>";
+        echo "<p class='bg-secondary-subtle text-center'>Aucun produit en session...</p>";
     }
     else {
-        echo "<div class=''>", 
+        echo "<div class='mt-5 p-5'>", 
             "<table class='table'>",
                 "<thead>",
                     "<tr>",
@@ -31,7 +31,7 @@
                         "<td>".$index."</td>",
                         "<td>".$product['name']."</td>",
                         "<td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>",
-                        "<td><a href='traitement.php?action=down-qtt&id=$index' class='btn btn-primary btn-sm me-1' role='button'>-</a>".$product['qtt']."<a href='traitement.php?action=up-qtt&id=$index' class='btn btn-primary btn-sm ms-1' role='button'>+</a></td>",
+                        "<td><a href='traitement.php?action=down-qtt&id=$index' class='me-1' role='button'><i class='fa-solid fa-minus'></i></a>".$product['qtt']."<a href='traitement.php?action=up-qtt&id=$index' class='ms-1' role='button'><i class='fa-solid fa-plus'></i></a></td>",
                         "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
                         "<td><a href='traitement.php?action=delete&id=$index' class='btn btn-danger btn-sm' role='button'><i class='fa-solid fa-trash'></i></a></td>",
                     "</tr>";
@@ -52,7 +52,7 @@
     }
 
     if(isset($_SESSION['message'])) {
-        echo "<div class='pt-2'>".$_SESSION['message']."</div>";
+        echo "<div class='mt-2 p-1 rounded bg-secondary-subtle text-center'>".$_SESSION['message']."</div>";
     }
 ?>
 
