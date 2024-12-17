@@ -56,7 +56,7 @@ Concepts :
 ## 🚀 Structure du projet
 
 ```
-premiere-app-php/
+Premiere_Appli_PHP/
 │
 ├── README.md
 │
